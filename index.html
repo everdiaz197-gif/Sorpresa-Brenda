@@ -1,0 +1,4260 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti 🌷</title>
+
+
+    <style>
+
+        /* =====================================================
+           COLORES GENERALES
+        ===================================================== */
+
+        :root {
+
+            --fondo1: #fff8fb;
+            --fondo2: #fce8f0;
+            --principal: #d47f9d;
+            --secundario: #f3bfd0;
+            --texto: #493840;
+            --tarjeta: rgba(255,255,255,0.88);
+
+        }
+
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--fondo1),
+                    var(--fondo2)
+                );
+
+            color: var(--texto);
+
+            transition:
+                background 1.5s ease,
+                color 1s ease;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =====================================================
+           PANTALLA PRINCIPAL
+        ===================================================== */
+
+        .pantalla {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .contenido-inicio {
+
+            max-width: 750px;
+
+            z-index: 5;
+
+            animation:
+                aparecer 1.5s ease;
+
+        }
+
+
+        .pequeno {
+
+            font-size: 14px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+            opacity: .7;
+
+        }
+
+
+        #tituloPrincipal {
+
+            font-size:
+                clamp(
+                    45px,
+                    10vw,
+                    90px
+                );
+
+            font-weight: 300;
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        #subtituloPrincipal {
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            max-width: 600px;
+
+            margin: auto;
+
+            opacity: .8;
+
+        }
+
+
+        /* =====================================================
+           BOTONES
+        ===================================================== */
+
+        button {
+
+            border: none;
+
+            background:
+                var(--principal);
+
+            color: white;
+
+            padding:
+                14px 30px;
+
+            border-radius: 50px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            margin-top: 30px;
+
+            transition: .3s;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,.12);
+
+        }
+
+
+        button:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,.18);
+
+        }
+
+
+        button:disabled {
+
+            opacity: .45;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+
+        }
+
+
+        /* =====================================================
+           FLORES DECORATIVAS
+        ===================================================== */
+
+        .flor-fondo {
+
+            position: absolute;
+
+            font-size: 40px;
+
+            opacity: .25;
+
+            animation:
+                flotar 6s infinite ease-in-out;
+
+        }
+
+
+        .flor1 {
+
+            top: 10%;
+            left: 10%;
+
+        }
+
+
+        .flor2 {
+
+            top: 20%;
+            right: 12%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .flor3 {
+
+            bottom: 15%;
+            left: 15%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .flor4 {
+
+            bottom: 20%;
+            right: 15%;
+
+            animation-delay: 3s;
+
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+
+        section {
+
+            padding:
+                100px 25px;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        .titulo-seccion {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        .titulo-seccion span {
+
+            display: block;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color:
+                var(--principal);
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .titulo-seccion h2 {
+
+            font-size: 42px;
+
+            font-weight: 400;
+
+        }
+
+
+        /* =====================================================
+           CONTADOR
+        ===================================================== */
+
+        .contador {
+
+            background:
+                var(--tarjeta);
+
+            backdrop-filter:
+                blur(10px);
+
+            border-radius: 30px;
+
+            padding:
+                45px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.08);
+
+        }
+
+
+        .contador-texto {
+
+            margin-bottom: 30px;
+
+            opacity: .75;
+
+        }
+
+
+        .numeros {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .numero {
+
+            min-width: 90px;
+
+        }
+
+
+        .numero strong {
+
+            display: block;
+
+            font-size: 36px;
+
+            color:
+                var(--principal);
+
+        }
+
+
+        .numero span {
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =====================================================
+           JARDÍN
+        ===================================================== */
+
+        .jardin {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        180px,
+                        1fr
+                    )
+                );
+
+            gap: 25px;
+
+        }
+
+
+        .flor-card {
+
+            background:
+                var(--tarjeta);
+
+            border-radius: 25px;
+
+            padding:
+                30px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,.07);
+
+            transition: .4s;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .flor-card:hover {
+
+            transform:
+                translateY(-8px);
+
+        }
+
+
+        .tulipan {
+
+            font-size: 75px;
+
+            margin-bottom: 15px;
+
+            display: inline-block;
+
+            transition: .5s;
+
+        }
+
+
+        .bloqueado {
+
+            filter:
+                grayscale(1);
+
+            opacity: .45;
+
+        }
+
+
+        .desbloqueado {
+
+            animation:
+                florecer .8s ease;
+
+        }
+
+
+        .flor-card h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .flor-card p {
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            opacity: .75;
+
+        }
+
+
+        .estado {
+
+            margin-top: 15px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color:
+                var(--principal);
+
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0,0,0,.55);
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 100;
+
+        }
+
+
+        .modal.activo {
+
+            display: flex;
+
+            animation:
+                aparecer .4s ease;
+
+        }
+
+
+        .modal-contenido {
+
+            background:
+                white;
+
+            color:
+                #40363b;
+
+            max-width: 750px;
+
+            width: 100%;
+
+            max-height: 92vh;
+
+            overflow-y: auto;
+
+            border-radius: 25px;
+
+            padding: 35px;
+
+            position: relative;
+
+            text-align: center;
+
+        }
+
+
+        .cerrar {
+
+            position: absolute;
+
+            top: 12px;
+
+            right: 20px;
+
+            font-size: 32px;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+        }
+
+
+        .cerrar:hover {
+
+            background:
+                rgba(0,0,0,.06);
+
+        }
+
+
+.modal img,
+.modal video {
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    margin: 20px auto;
+    display: block;
+}
+@media (max-width: 700px) {
+    .modal video {
+        width: auto;
+        max-width: 90vw;
+        max-height: 65vh;
+        object-fit: contain;
+    }
+}
+
+
+        .modal p {
+
+            line-height: 1.8;
+
+            margin-top: 15px;
+
+        }
+
+
+        /* =====================================================
+           LIBRO DIGITAL
+        ===================================================== */
+
+        .libro {
+
+            width: 100%;
+
+            max-width: 620px;
+
+            margin:
+                25px auto 0;
+
+            perspective: 1200px;
+
+        }
+
+
+        .pagina-libro {
+
+            position: relative;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #fffdf7,
+                    #fff8e8
+                );
+
+            min-height: 440px;
+
+            padding:
+                55px 45px;
+
+            border-radius:
+                8px 22px 22px 8px;
+
+            border-left:
+                6px solid #e7d3a1;
+
+            box-shadow:
+
+                inset 10px 0 18px
+                rgba(120,90,40,.08),
+
+                inset -2px 0 5px
+                rgba(120,90,40,.05),
+
+                0 18px 40px
+                rgba(0,0,0,.18);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            animation:
+                pasarPagina .55s ease;
+
+        }
+
+
+        /* Línea decorativa del libro */
+
+        .pagina-libro::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 18px;
+
+            top: 25px;
+
+            bottom: 25px;
+
+            width: 1px;
+
+            background:
+                rgba(120,90,40,.12);
+
+        }
+
+
+        /* Pequeño detalle de esquina */
+
+        .pagina-libro::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+
+            right: 0;
+
+            width: 55px;
+
+            height: 55px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    transparent 50%,
+                    #eadbb7 50%
+                );
+
+            opacity: .45;
+
+        }
+
+
+        .pagina-libro h3 {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 28px;
+
+            font-weight: normal;
+
+            color:
+                #66502b;
+
+            margin-bottom: 25px;
+
+            line-height: 1.3;
+
+        }
+
+
+        .texto-libro {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 17px;
+
+            line-height: 2;
+
+            text-align: left;
+
+            white-space: pre-line;
+
+            color:
+                #4d443b;
+
+            width: 100%;
+
+        }
+
+
+        .texto-centro {
+
+            text-align: center;
+
+        }
+
+
+        .pagina-libro img {
+
+            width: 100%;
+
+            max-height: 330px;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            margin:
+                10px 0 20px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,.12);
+
+        }
+
+
+        .pagina-libro video {
+
+            width: 100%;
+
+            max-height: 330px;
+
+            border-radius: 12px;
+
+            margin:
+                10px 0;
+
+            background: #111;
+
+        }
+
+
+        /* =====================================================
+           LISTAS DENTRO DEL LIBRO
+        ===================================================== */
+
+        .lista-libro {
+
+            list-style: none;
+
+            width: 100%;
+
+            text-align: left;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+        }
+
+
+        .lista-libro li {
+
+            padding:
+                10px 5px;
+
+            border-bottom:
+                1px solid
+                rgba(120,90,40,.12);
+
+            line-height: 1.6;
+
+            font-size: 16px;
+
+        }
+
+
+        .lista-libro li:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .numero-lista {
+
+            color:
+                #b48b22;
+
+            font-weight: bold;
+
+            margin-right: 8px;
+
+        }
+
+
+        /* =====================================================
+           CONTROLES DEL LIBRO
+        ===================================================== */
+
+        .controles-libro {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 20px;
+
+            width: 100%;
+
+        }
+
+
+        .controles-libro button {
+
+            margin-top: 0;
+
+            padding:
+                10px 20px;
+
+            font-size: 14px;
+
+        }
+
+
+        .numero-pagina {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 14px;
+
+            opacity: .65;
+
+            white-space: nowrap;
+
+        }
+
+
+        .detalle-pagina {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 13px;
+
+            opacity: .55;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================================
+           CARTA DE CUMPLEAÑOS ORIGINAL
+           OCULTA HASTA EL 6 DE OCTUBRE
+        ===================================================== */
+
+        #cumpleanos {
+
+            display: none;
+
+        }
+
+
+        #cumpleanos.visible {
+
+            display: block;
+
+            animation:
+                aparecer 2s ease;
+
+        }
+
+
+        .carta {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            background:
+                rgba(255,255,255,.9);
+
+            padding: 50px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.08);
+
+        }
+
+
+        .carta p {
+
+            line-height: 1.9;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .firma {
+
+            text-align: right;
+
+            color:
+                var(--principal);
+
+            font-size: 20px;
+
+            margin-top: 30px;
+
+        }
+
+
+        /* =====================================================
+           PANTALLA FINAL DE CUMPLEAÑOS
+        ===================================================== */
+
+        #finalCumpleanos {
+
+            display: none;
+
+        }
+
+
+        #finalCumpleanos.visible {
+
+            display: flex;
+
+            min-height: 90vh;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            animation:
+                aparecer 2s ease;
+
+        }
+
+
+        #finalCumpleanos h2 {
+
+            font-size:
+                clamp(
+                    45px,
+                    9vw,
+                    90px
+                );
+
+            font-weight: 300;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        #finalCumpleanos p {
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            max-width: 650px;
+
+            margin: auto;
+
+        }
+
+
+        .corazon {
+
+            font-size: 65px;
+
+            margin-top: 30px;
+
+            animation:
+                latido 1.3s infinite;
+
+        }
+
+
+        /* =====================================================
+           CONFETI
+        ===================================================== */
+
+        .confeti {
+
+            position: fixed;
+
+            top: -20px;
+
+            font-size: 25px;
+
+            z-index: 200;
+
+            animation:
+                caer 5s linear forwards;
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            font-size: 13px;
+
+            opacity: .6;
+
+        }
+
+
+        /* =====================================================
+           MODO PRUEBA
+        ===================================================== */
+
+        #panelPruebas {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            width: 280px;
+
+            background:
+                rgba(35,35,35,.95);
+
+            color: white;
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            z-index: 9999;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,.35);
+
+            font-size: 13px;
+
+        }
+
+
+        #panelPruebas h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        #panelPruebas p {
+
+            line-height: 1.5;
+
+            opacity: .8;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        #panelPruebas button {
+
+            width: 100%;
+
+            margin-top: 7px;
+
+            padding:
+                10px 12px;
+
+            font-size: 13px;
+
+            background:
+                #d47f9d;
+
+        }
+
+
+        #panelPruebas button:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           ANIMACIONES
+        ===================================================== */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes flotar {
+
+            0%,100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-20px)
+                    rotate(8deg);
+
+            }
+
+        }
+
+
+        @keyframes florecer {
+
+            0% {
+
+                transform:
+                    scale(.4)
+                    rotate(-15deg);
+
+                opacity: 0;
+
+            }
+
+            60% {
+
+                transform:
+                    scale(1.25)
+                    rotate(5deg);
+
+            }
+
+            100% {
+
+                transform:
+                    scale(1)
+                    rotate(0);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        @keyframes latido {
+
+            0%,100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.2);
+
+            }
+
+        }
+
+
+        @keyframes caer {
+
+            0% {
+
+                transform:
+                    translateY(-20px)
+                    rotate(0deg);
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        @keyframes pasarPagina {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    rotateY(-12deg)
+                    translateX(35px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    rotateY(0)
+                    translateX(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
+        @media(max-width:700px) {
+
+            section {
+
+                padding:
+                    70px 18px;
+
+            }
+
+
+            .carta {
+
+                padding:
+                    30px 22px;
+
+            }
+
+
+            .numeros {
+
+                gap: 15px;
+
+            }
+
+
+            .numero {
+
+                min-width: 70px;
+
+            }
+
+
+            .numero strong {
+
+                font-size: 28px;
+
+            }
+
+
+            #panelPruebas {
+
+                width: 220px;
+
+                right: 10px;
+
+                bottom: 10px;
+
+                padding: 15px;
+
+            }
+
+
+            #panelPruebas button {
+
+                font-size: 12px;
+
+                padding: 8px;
+
+            }
+
+
+            .modal {
+
+                padding: 10px;
+
+            }
+
+
+            .modal-contenido {
+
+                padding:
+                    30px 15px 20px;
+
+                max-height: 95vh;
+
+            }
+
+
+            .pagina-libro {
+
+                min-height: 430px;
+
+                padding:
+                    45px 28px;
+
+            }
+
+
+            .pagina-libro h3 {
+
+                font-size: 24px;
+
+            }
+
+
+            .texto-libro {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+
+            }
+
+
+            .lista-libro li {
+
+                font-size: 15px;
+
+                padding:
+                    9px 2px;
+
+            }
+
+
+            .controles-libro button {
+
+                padding:
+                    9px 14px;
+
+                font-size: 13px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PANTALLA PRINCIPAL
+    ===================================================== -->
+
+    <header class="pantalla">
+
+
+        <div class="flor-fondo flor1">
+            🌷
+        </div>
+
+        <div class="flor-fondo flor2">
+            🌷
+        </div>
+
+        <div class="flor-fondo flor3">
+            🌷
+        </div>
+
+        <div class="flor-fondo flor4">
+            🌷
+        </div>
+
+
+        <div class="contenido-inicio">
+
+
+            <div
+                class="pequeno"
+                id="fechaActual">
+
+                Nuestra historia
+
+            </div>
+
+
+            <h1 id="tituloPrincipal">
+
+                Para ti
+
+            </h1>
+
+
+            <p id="subtituloPrincipal">
+
+                Hay algunas cosas que quiero
+                guardar contigo
+
+            </p>
+
+
+            <button onclick="irAlJardin()">
+
+                Entrar 🌷
+
+            </button>
+
+
+        </div>
+
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =================================================
+             CONTADOR DE RELACIÓN
+        ================================================== -->
+
+        <section>
+
+
+            <div class="titulo-seccion">
+
+                <span>
+                    Nuestro tiempo
+                </span>
+
+
+                <h2>
+                    Hasta ahora...
+                </h2>
+
+            </div>
+
+
+            <div class="contador">
+
+
+                <div class="contador-texto">
+
+                    Llevamos juntos:
+
+                </div>
+
+
+                <div class="numeros">
+
+
+                    <div class="numero">
+
+                        <strong id="dias">
+                            0
+                        </strong>
+
+                        <span>
+                            días
+                        </span>
+
+                    </div>
+
+
+                    <div class="numero">
+
+                        <strong id="horas">
+                            0
+                        </strong>
+
+                        <span>
+                            horas
+                        </span>
+
+                    </div>
+
+
+                    <div class="numero">
+
+                        <strong id="minutos">
+                            0
+                        </strong>
+
+                        <span>
+                            minutos
+                        </span>
+
+                    </div>
+
+
+                    <div class="numero">
+
+                        <strong id="segundos">
+                            0
+                        </strong>
+
+                        <span>
+                            segundos
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             JARDÍN
+        ================================================== -->
+
+        <section id="seccionJardin">
+
+
+            <div class="titulo-seccion">
+
+                <span>
+                    Recuerdos
+                </span>
+
+
+                <h2>
+                    Nuestro jardín
+                </h2>
+
+            </div>
+
+
+            <div
+                class="jardin"
+                id="jardin">
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CARTA DE CUMPLEAÑOS EXTRA
+             OCULTA HASTA EL 6 DE OCTUBRE
+        ================================================== -->
+
+        <section id="cumpleanos">
+
+
+            <div class="titulo-seccion">
+
+                <span>
+                    Para ti
+                </span>
+
+
+                <h2>
+                    Una última cosa...
+                </h2>
+
+            </div>
+
+
+            <div class="carta">
+
+
+                <p>
+                    Feliz cumpleaños mi gordita hermosa
+                </p>
+
+
+                <p>
+                    Queria hacer algo diferente
+                    Algo especial algo que
+                    no muchas personas puedan hacer
+                </p>
+
+
+                <p>
+                    Quise guardar algunos momentos
+                    y recuerdos de nosotros y algunas
+                    cosas que queria decirte
+                </p>
+
+
+                <p>
+                    Gracias por estos tres años
+                    mi gordita hermosa
+                    Siempre te lo dire
+                    eres y seras
+                    lo mejor que me pudo pasar
+                </p>
+
+
+                <p>
+                    Espero y te la pases muy bien
+                    en tu cumpleaños mi bebe
+                    Te adoro mi reina hermosa
+                </p>
+
+
+                <div class="firma">
+
+                    Con mucho amor de tu gordito ❤️
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL DE CUMPLEAÑOS
+        ================================================== -->
+
+        <section id="finalCumpleanos">
+
+
+            <div>
+
+
+                <h2>
+                    Feliz cumpleaños mi amor ❤️
+                </h2>
+
+
+                <p>
+                    Este libro tiene muchas
+                    paginas por escribir.
+                </p>
+
+
+                <div class="corazon">
+                    🌷
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        Hecho especialmente para ti mi vida hermosa 🌷
+
+    </footer>
+
+
+    <!-- =====================================================
+         PANEL DE MODO PRUEBA
+    ===================================================== -->
+
+    <div id="panelPruebas">
+
+
+        <h3>
+            🧪 Modo prueba
+        </h3>
+
+
+        <p>
+
+            Utiliza estos botones para ver cómo se
+            desbloquea cada fecha.
+
+        </p>
+
+
+        <button onclick="probarFecha('2026-09-21T00:00:00')">
+
+            🌷 21 de septiembre
+
+        </button>
+
+
+        <button onclick="probarFecha('2026-09-23T18:00:00')">
+
+            🌸 23 de septiembre
+
+        </button>
+
+
+        <button onclick="probarFecha('2026-09-25T20:00:00')">
+
+            💜 25 de septiembre
+
+        </button>
+
+
+        <button onclick="probarFecha('2026-09-28T19:00:00')">
+
+            💙 28 de septiembre
+
+        </button>
+
+
+        <button onclick="probarFecha('2026-10-01T20:00:00')">
+
+            ❤️ 1 de octubre
+
+        </button>
+
+
+        <button onclick="probarFecha('2026-10-06T00:01:00')">
+
+            🎂 6 de octubre
+
+        </button>
+
+
+        <button onclick="volverFechaReal()">
+
+            🕐 Volver a fecha real
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL / LIBRO
+    ===================================================== -->
+
+    <div
+        class="modal"
+        id="modal">
+
+
+        <div class="modal-contenido">
+
+
+            <div
+                class="cerrar"
+                onclick="cerrarModal()">
+
+                ×
+
+            </div>
+
+
+            <h2 id="modalTitulo">
+
+                Recuerdo
+
+            </h2>
+
+
+            <div id="modalContenido">
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* ====================================================
+           CONFIGURACIÓN PRINCIPAL
+        ==================================================== */
+
+
+        /* ====================================================
+           MODO PRUEBA
+
+           TRUE:
+           Puedes probar todas las fechas.
+
+           FALSE:
+           Se utiliza solamente la fecha real.
+
+           IMPORTANTE:
+           Cuando termines el proyecto cambia:
+
+           true
+
+           por:
+
+           false
+        ==================================================== */
+
+        const MODO_PRUEBA = true;
+
+
+        let fechaSimulada = null;
+
+
+        /* ====================================================
+           OBTENER FECHA ACTUAL
+        ==================================================== */
+
+        function obtenerFechaActual() {
+
+            if (
+                MODO_PRUEBA &&
+                fechaSimulada !== null
+            ) {
+
+                return fechaSimulada;
+
+            }
+
+            return new Date();
+
+        }
+
+
+        /* ====================================================
+           FECHA EN QUE COMENZARON
+        ==================================================== */
+
+        const fechaInicio =
+            new Date(
+                "2023-09-21T00:00:00"
+            );
+
+
+        /* ====================================================
+           FECHA DEL CUMPLEAÑOS
+
+           6 DE OCTUBRE DE 2026 A LAS 00:00
+        ==================================================== */
+
+        const fechaCumpleanos =
+            new Date(
+                "2026-10-06T00:00:00"
+            );
+
+
+        /* ====================================================
+           RECUERDOS
+
+           AQUÍ ES DONDE VAS A CAMBIAR
+           CASI TODO EL CONTENIDO.
+
+           Cada objeto representa una flor.
+
+           Cada "pagina" dentro de contenido
+           representa una página del libro.
+        ==================================================== */
+
+
+        const recuerdos = [
+
+
+            /* =================================================
+               21 DE SEPTIEMBRE
+               
+               2 PÁGINAS:
+               1. CARTA
+               2. VIDEO
+            ================================================= */
+
+            {
+
+                fecha:
+                    "2026-09-21T00:00:00",
+
+                titulo:
+                    "Tres años de nosotros ❤️",
+
+                descripcion:
+                    "Tres años desde que comenzó nuestra historia",
+
+                tulipan:
+                    "🌷",
+
+                color:
+                    "amarillo",
+
+                tipo:
+                    "libro",
+
+                contenido: [
+
+
+                    /* ==============================
+                       PÁGINA 1 - CARTA
+                    ============================== */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "Querida Brenda Hernandez ❤️",
+
+                        texto:
+
+                            `Querida Brenda Hernandez me dijiste que escribiera algo memorable
+                            y no solo lo escribi si no que tambien lo hice asi que aqui esta 
+                            un pequeño recuerdo de la historia de nuestras vidas felices tres años
+                            mi gordita hermosa jamas me cansare de decirtelo mi mundo entero 
+                            te adoro y te amo con todo mi ser y haria y daria lo que fuera por
+                            estar contigo a tu lado siempre y para siempre me encanta estar contigo me gusta ser tu novio y anhelo el dia en el que podamos ser esposos espero seguir contigo para toda la vida por que disfruto tu compañia solo queria hacer esto como una pequeña muestra del amor inmenso que te tengo que lo disfrutes y espera que hay mas `
+
+                    },
+
+
+                    /* ==============================
+                       PÁGINA 2 - VIDEO
+                    ============================== */
+
+                    {
+
+                        tipo:
+                            "video",
+
+                        titulo:
+                            "Y asi fue como empezo todo 🌷",
+
+                        archivo:
+                            "video21.mp4",
+
+                        textoArriba:
+                            "Para conmemorar este dia tan especial y guardarlo para siempre"
+
+                    }
+
+                ]
+
+            },
+
+
+            /* =================================================
+               23 DE SEPTIEMBRE
+               
+               6 PÁGINAS DE TEXTO
+            ================================================= */
+
+            {
+
+                fecha:
+                    "2026-09-23T18:00:00",
+
+                titulo:
+                    "Momentos graciosos que nos gusta recordar ❤️",
+
+                descripcion:
+                    "Cinco recuerdos de los cuales recordamos con una sonrisa",
+
+                tulipan:
+                    "🌷",
+
+                color:
+                    "rosa",
+
+                tipo:
+                    "libro",
+
+                contenido: [
+
+
+                    /* PÁGINA 1 */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "El arete el arete",
+
+                        texto:
+
+                            `Cada vez que bromeamos con que te duele la oreja por tu arete me acuerdo de ese dia que estabamos jugando y estaba encima de ti y tu dijiste el arete el arete para poder safarte de mi y yo todo preocupado me quite siendo que no te dolia y solo querias que me quitara este es uno de los recuerdos que siempre tendre en cuenta`
+
+                    },
+
+
+                    /* PÁGINA 2 */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "El gargajo",
+
+                        texto:
+
+                            `Este dia estabamos en el estacionamiento de sendero como siempre nos la pasabamos por ahi y quise escupir un gargajo que tenia pero al momento de haberlo sacado salio volando y tu te empezaste a reir tanto que hasta casi te meas este va ser uno de los recuerdos que mas pena me da pero escucharte reir siempre va a ser el mejor sonido que mis oidos podran escuchar por eso a pesar de la pena que me dio el recordar tu risa y escucharla diario es y sera lo mejor del mundo`
+
+                    },
+
+
+                    /* PÁGINA 3 */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "El mollete",
+
+                        texto:
+
+                            `Recuerdo que ibamos saliendo de smart y estabamos hablando de comida y este recuerdo nos ha seguido a dia de hoy hasta hace poquito que nos acordamos de lo que paso ese dia no recordamos como paso exactamente pero sabemos que todo empezo asi dijiste molleja y por alguna extraña razon yo pense en un mollete y tu me estabas diciendo que te gustaba y yo lo empece a describir "ay si con sus frijoles y queso derretido" recuerdo la cara que pusiste de que achis ese no es un mollete y de nuevo nos empezamos a reir me encanta por que siempre recordaremos este momento cada vez que comamos o mencionen los molletes`
+
+                    },
+
+
+                    /* PÁGINA 4 */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "A mis pies",
+
+                        texto:
+
+                            `Este recuerdo es de dias distintos pero van de la mano es el recuerdo de que cuando empezamos a andar te la vivias a mis pies por que varias veces te caiste y en una de esas que para mi es la mejor fue cuando rockanrolleaste nada mas te falto la guitarra 🤣 recuerdo cundo hablamos de esto y me dijiste que te dio mas pena por que no me reia y que preferias que me hubiera reido a que me hubiera preocupado por ti como lo hice  `
+
+                    },
+
+
+                    /* PÁGINA 5 */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "La frente babeada",
+
+                        texto:
+
+                            `Recuerdo este dia que nos dormimos y nos quedamos abrazados y de tan a gusto que estabamos los dos babeamos tu mi pecho y yo tu frente y que cuando nos despertamos solo nos limpiamos el uno al otro y nos reimos por esta y mil razones mas yo se que nos vamos a casar `
+
+                    }
+
+                
+
+                ]
+
+            },
+
+
+            /* =================================================
+               25 DE SEPTIEMBRE
+               
+               1 PÁGINA
+               LISTA DE COSAS QUE LES GUSTAN A LOS DOS
+            ================================================= */
+
+            {
+
+                fecha:
+                    "2026-09-25T20:00:00",
+
+                titulo:
+                    "Cosas que nos gustan ❤️",
+
+                descripcion:
+                    "Pequeñas cosas que tenemos en común",
+
+                tulipan:
+                    "🌷",
+
+                color:
+                    "morado",
+
+                tipo:
+                    "libro",
+
+                contenido: [
+
+
+                    {
+
+                        tipo:
+                            "lista",
+
+                        titulo:
+                            "Cosas que nos gustan a los dos",
+
+                        elementos: [
+
+                            "Nuestro gran amor por el sushi 🍣",
+
+                            "Nuestros guisos favoritos de la china 🥡 ",
+
+                            "Nuestros baños juntos 🚿 ",
+
+                            "Dormir abrazados 😴",
+
+                            "Nuestro amor por comer junto al otro 🍔",
+
+                            "El dairy queen de oreo 🍦",
+
+                            "La piya ",
+
+                            "Ver algo mientras comemos",
+
+                            "Ahora que empezaste a tomar cafe",
+
+                            "La serie de big mouth"
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+
+
+            /* =================================================
+               28 DE SEPTIEMBRE
+               
+               1 PÁGINA
+               COSAS QUE NUNCA PUEDEN FALTAR
+            ================================================= */
+
+            {
+
+                fecha:
+                    "2026-09-28T19:00:00",
+
+                titulo:
+                    "Cuando nos vemos 🌷",
+
+                descripcion:
+                    "Hay cosas que nunca pueden faltar",
+
+                tulipan:
+                    "🌷",
+
+                color:
+                    "azul",
+
+                tipo:
+                    "libro",
+
+                contenido: [
+
+
+                    {
+
+                        tipo:
+                            "lista",
+
+                        titulo:
+                            "Cosas que nunca pueden faltar",
+
+                        elementos: [
+
+                            "Tu fuz tea cuando salimos a comer",
+
+                            "Que te manches cada vez que comemos",
+
+                            "El que no me quieras dejar ir cuando nos despedimos",
+
+                            "Nuestro clinch cada que comemos",
+
+                            "Nuestro besito despues de agarrar comida",
+
+                            "Que cada vez que vemos algo que nos gusta pensamos en nuestra futura casa",
+
+                            "Que cada vez que te abrazo y te ensucio los lentes con el cachete",
+
+                            "Nuestro ritual cuando nos despedimos de besito en la nariz y en la frente y despues persinarnos",
+
+                            "Nuestros buenos dias y buenas noches (sueña con los angelitos mi gordita hermosa)",
+
+                            "Avisarnos todo cuando salimos cuando llegamos y contarnos nuestro dia en la noche"
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+
+
+            /* =================================================
+               1 DE OCTUBRE
+               
+               1 PÁGINA:
+               FOTO + TEXTO
+            ================================================= */
+
+            {
+
+                fecha:
+                    "2026-10-01T20:00:00",
+
+                titulo:
+                    "Un día para recordar ❤️",
+
+                descripcion:
+                    "Una fotografía y la historia detrás de ella",
+
+                tulipan:
+                    "🌷",
+
+                color:
+                    "rojo",
+
+                tipo:
+                    "libro",
+
+                contenido: [
+
+
+                    {
+
+                        tipo:
+                            "fotoTexto",
+
+                        titulo:
+                            "Ese día...",
+
+                        archivo:
+                            "foto2.jpg",
+
+                        texto:
+
+                            `Esta es mi foto favorita de los dos 
+                            me encanta como se ve y me encanta lo 
+                            que paso ese dia lo que hicimos como 
+                            nos la pasamos el haber convivido con
+                            tu hermana y tu cuñado y me gusta que 
+                            en esta foto se ve plasmado algo del
+                            inmenso amor que nos tenemos sin duda 
+                            pondria esta foto cuando nos casemos 
+                            como recuerdo de ese dia tan bonito 
+                            que quedo en esta foto`
+
+                    }
+
+                ]
+
+            },
+
+
+            /* =================================================
+               6 DE OCTUBRE
+               
+               CUMPLEAÑOS
+
+               2 PÁGINAS:
+               1. CARTA
+               2. VIDEO + TEXTO ARRIBA
+            ================================================= */
+
+            {
+
+                fecha:
+                    "2026-10-06T00:00:00",
+
+                titulo:
+                    "Feliz cumpleaños mi gordita hermosa 🎂",
+
+                descripcion:
+                    "Hoy finalmente puedes abrir la última flor",
+
+                tulipan:
+                    "🌷",
+
+                color:
+                    "amarillo",
+
+                tipo:
+                    "libro",
+
+                contenido: [
+
+
+                    /* ==============================
+                       PÁGINA 1 - CARTA
+                    ============================== */
+
+                    {
+
+                        tipo:
+                            "texto",
+
+                        titulo:
+                            "Feliz cumpleaños mi bebe hermosa ❤️",
+
+                        texto:
+
+                            `Feliz cumpleaños mi gordita hermosa
+
+Y hoy es el dia hoy es tu cumpleaños
+
+Felices 19 años mi gordita
+
+Espero y te la pases muy bien hoy mi amor 
+esto solo fue una pequeña muestra de mi 
+gran amor hacia ti no se si estare contigo
+en este dia pero quiero que sepas lo mucho
+que te amo y lo orgulloso de ti de lo que 
+eres de la increible mujer y novia en que
+te has convertido te deseo muy felices 19 
+años mi amor y que sepas que a pesar de 
+todo siempre estare para ti en lo que 
+necesites amor siempre seras mi gordita 
+preciosa 
+
+Espero y hayas disfrutado esto que hice 
+para ti es algo sencillo mi amor pero
+que sepas que lo hice con mucho amor y
+lo hice pensando en ti te amo y te adoro
+        Con amor tu gordito ❤️ `
+
+                    },
+
+
+                    /* ==============================
+                       PÁGINA 2 - VIDEO
+                    ============================== */
+
+                    {
+
+                        tipo:
+                            "video",
+
+                        titulo:
+                            "Un último recuerdo 🎂",
+
+                        archivo:
+                            "videoCumpleanos.mp4",
+
+                        textoArriba:
+                            "Y para terminar este pequeño libro, quiero que veas esto ❤️"
+
+                    }
+
+                ]
+
+            }
+
+        ];
+
+
+        /* ====================================================
+           TEMAS
+        ==================================================== */
+
+        const temas = {
+
+
+            normal: {
+
+                fondo1:
+                    "#fff8fb",
+
+                fondo2:
+                    "#fce8f0",
+
+                principal:
+                    "#d47f9d",
+
+                secundario:
+                    "#f3bfd0",
+
+                texto:
+                    "#493840"
+
+            },
+
+
+            amarillo: {
+
+                fondo1:
+                    "#fffbea",
+
+                fondo2:
+                    "#fff1a8",
+
+                principal:
+                    "#d7a900",
+
+                secundario:
+                    "#ffe36e",
+
+                texto:
+                    "#4d421d"
+
+            },
+
+
+            rosa: {
+
+                fondo1:
+                    "#fff4f8",
+
+                fondo2:
+                    "#f7d6e4",
+
+                principal:
+                    "#d66f99",
+
+                secundario:
+                    "#efb6ce",
+
+                texto:
+                    "#513542"
+
+            },
+
+
+            morado: {
+
+                fondo1:
+                    "#f8f3ff",
+
+                fondo2:
+                    "#dfd0f7",
+
+                principal:
+                    "#8862b8",
+
+                secundario:
+                    "#c4a7e8",
+
+                texto:
+                    "#3f334c"
+
+            },
+
+
+            azul: {
+
+                fondo1:
+                    "#f0f9ff",
+
+                fondo2:
+                    "#ccecff",
+
+                principal:
+                    "#559bc2",
+
+                secundario:
+                    "#a8d9f2",
+
+                texto:
+                    "#304652"
+
+            },
+
+
+            rojo: {
+
+                fondo1:
+                    "#fff4f4",
+
+                fondo2:
+                    "#f5d1d1",
+
+                principal:
+                    "#bd5e67",
+
+                secundario:
+                    "#e9a5aa",
+
+                texto:
+                    "#4b3033"
+
+            }
+
+        };
+
+
+        /* ====================================================
+           CAMBIAR TEMA
+        ==================================================== */
+
+        function cambiarTema(nombre) {
+
+            const tema =
+                temas[nombre]
+                ||
+                temas.normal;
+
+
+            document.documentElement.style
+                .setProperty(
+                    "--fondo1",
+                    tema.fondo1
+                );
+
+
+            document.documentElement.style
+                .setProperty(
+                    "--fondo2",
+                    tema.fondo2
+                );
+
+
+            document.documentElement.style
+                .setProperty(
+                    "--principal",
+                    tema.principal
+                );
+
+
+            document.documentElement.style
+                .setProperty(
+                    "--secundario",
+                    tema.secundario
+                );
+
+
+            document.documentElement.style
+                .setProperty(
+                    "--texto",
+                    tema.texto
+                );
+
+        }
+
+
+        /* ====================================================
+           OBTENER ÚLTIMO RECUERDO DESBLOQUEADO
+        ==================================================== */
+
+        function obtenerRecuerdoActivo() {
+
+            const ahora =
+                obtenerFechaActual();
+
+            let activo =
+                null;
+
+
+            recuerdos.forEach(
+                recuerdo => {
+
+                    const fecha =
+                        new Date(
+                            recuerdo.fecha
+                        );
+
+
+                    if (
+                        fecha <= ahora
+                    ) {
+
+                        if (
+                            !activo
+                            ||
+                            fecha >
+                            new Date(
+                                activo.fecha
+                            )
+                        ) {
+
+                            activo =
+                                recuerdo;
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+            return activo;
+
+        }
+
+
+        /* ====================================================
+           ACTUALIZAR TEMA
+        ==================================================== */
+
+        function actualizarTema() {
+
+            const ahora =
+                obtenerFechaActual();
+
+
+            if (
+                ahora >=
+                fechaCumpleanos
+            ) {
+
+                activarCumpleanos();
+
+                return;
+
+            }
+
+
+            const activo =
+                obtenerRecuerdoActivo();
+
+
+            if (!activo) {
+
+                cambiarTema(
+                    "normal"
+                );
+
+
+                document.getElementById(
+                    "tituloPrincipal"
+                ).textContent =
+                    "Para ti";
+
+
+                document.getElementById(
+                    "subtituloPrincipal"
+                ).textContent =
+                    "Hay algunas cosas que quiero guardar contigo.";
+
+
+                document.getElementById(
+                    "fechaActual"
+                ).textContent =
+                    "Nuestra historia";
+
+                return;
+
+            }
+
+
+            cambiarTema(
+                activo.color
+            );
+
+
+            document.getElementById(
+                "tituloPrincipal"
+            ).textContent =
+                activo.titulo;
+
+
+            document.getElementById(
+                "subtituloPrincipal"
+            ).textContent =
+                activo.descripcion;
+
+
+            document.getElementById(
+                "fechaActual"
+            ).textContent =
+                formatearFecha(
+                    activo.fecha
+                );
+
+        }
+
+
+        /* ====================================================
+           CREAR JARDÍN
+        ==================================================== */
+
+        function crearJardin() {
+
+            const jardin =
+                document.getElementById(
+                    "jardin"
+                );
+
+
+            jardin.innerHTML =
+                "";
+
+
+            const ahora =
+                obtenerFechaActual();
+
+
+            recuerdos.forEach(
+                recuerdo => {
+
+                    const fecha =
+                        new Date(
+                            recuerdo.fecha
+                        );
+
+
+                    const desbloqueado =
+                        fecha <= ahora;
+
+
+                    const tarjeta =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    tarjeta.className =
+                        "flor-card";
+
+
+                    if (
+                        !desbloqueado
+                    ) {
+
+                        tarjeta.classList.add(
+                            "bloqueado"
+                        );
+
+                    }
+
+                    else {
+
+                        tarjeta.classList.add(
+                            "desbloqueado"
+                        );
+
+                    }
+
+
+                    const tulipan =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    tulipan.className =
+                        "tulipan";
+
+
+                    tulipan.textContent =
+                        recuerdo.tulipan;
+
+
+                    const titulo =
+                        document.createElement(
+                            "h3"
+                        );
+
+
+                    titulo.textContent =
+                        desbloqueado
+                        ?
+                        recuerdo.titulo
+                        :
+                        "🔒 Próximamente";
+
+
+                    const descripcion =
+                        document.createElement(
+                            "p"
+                        );
+
+
+                    if (
+                        desbloqueado
+                    ) {
+
+                        descripcion.textContent =
+                            recuerdo.descripcion;
+
+                    }
+
+                    else {
+
+                        descripcion.textContent =
+                            "Esta flor todavía no ha florecido.";
+
+                    }
+
+
+                    const estado =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    estado.className =
+                        "estado";
+
+
+                    if (
+                        desbloqueado
+                    ) {
+
+                        estado.textContent =
+                            "✨ Abrir libro";
+
+
+                        tarjeta.style.cursor =
+                            "pointer";
+
+
+                        tarjeta.onclick =
+                            function () {
+
+                                abrirRecuerdo(
+                                    recuerdo
+                                );
+
+                            };
+
+                    }
+
+                    else {
+
+                        estado.textContent =
+                            cuentaRegresiva(
+                                fecha
+                            );
+
+                    }
+
+
+                    tarjeta.appendChild(
+                        tulipan
+                    );
+
+
+                    tarjeta.appendChild(
+                        titulo
+                    );
+
+
+                    tarjeta.appendChild(
+                        descripcion
+                    );
+
+
+                    tarjeta.appendChild(
+                        estado
+                    );
+
+
+                    jardin.appendChild(
+                        tarjeta
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* ====================================================
+           CUENTA REGRESIVA
+        ==================================================== */
+
+        function cuentaRegresiva(fecha) {
+
+            const ahora =
+                obtenerFechaActual();
+
+
+            const diferencia =
+                fecha -
+                ahora;
+
+
+            if (
+                diferencia <= 0
+            ) {
+
+                return "✨ Ya disponible";
+
+            }
+
+
+            const dias =
+                Math.floor(
+                    diferencia /
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
+                );
+
+
+            const horas =
+                Math.floor(
+                    (
+                        diferencia /
+                        (
+                            1000 *
+                            60 *
+                            60
+                        )
+                    ) % 24
+                );
+
+
+            const minutos =
+                Math.floor(
+                    (
+                        diferencia /
+                        (
+                            1000 *
+                            60
+                        )
+                    ) % 60
+                );
+
+
+            return (
+                "🔒 " +
+                dias +
+                "d " +
+                horas +
+                "h " +
+                minutos +
+                "m"
+            );
+
+        }
+
+
+        /* ====================================================
+           ABRIR RECUERDO / LIBRO
+        ==================================================== */
+
+        function abrirRecuerdo(recuerdo) {
+
+            const modal =
+                document.getElementById(
+                    "modal"
+                );
+
+
+            const titulo =
+                document.getElementById(
+                    "modalTitulo"
+                );
+
+
+            const contenido =
+                document.getElementById(
+                    "modalContenido"
+                );
+
+
+            titulo.textContent =
+                recuerdo.titulo;
+
+
+            contenido.innerHTML =
+                "";
+
+
+            /* =================================================
+               SI ES LIBRO
+            ================================================= */
+
+            if (
+                recuerdo.tipo ===
+                "libro"
+            ) {
+
+
+                let paginaActual =
+                    0;
+
+
+                function mostrarPagina() {
+
+                    contenido.innerHTML =
+                        "";
+
+
+                    const paginas =
+                        recuerdo.contenido;
+
+
+                    const pagina =
+                        paginas[
+                            paginaActual
+                        ];
+
+
+                    const libro =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    libro.className =
+                        "libro";
+
+
+                    const paginaElemento =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    paginaElemento.className =
+                        "pagina-libro";
+
+
+                    /* =========================================
+                       PÁGINA DE TEXTO
+                    ========================================= */
+
+                    if (
+                        pagina.tipo ===
+                        "texto"
+                    ) {
+
+
+                        const h3 =
+                            document.createElement(
+                                "h3"
+                            );
+
+
+                        h3.textContent =
+                            pagina.titulo;
+
+
+                        const texto =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        texto.className =
+                            "texto-libro";
+
+
+                        texto.textContent =
+                            pagina.texto;
+
+
+                        paginaElemento.appendChild(
+                            h3
+                        );
+
+
+                        paginaElemento.appendChild(
+                            texto
+                        );
+
+                    }
+
+
+                    /* =========================================
+                       PÁGINA DE LISTA
+                    ========================================= */
+
+                    else if (
+                        pagina.tipo ===
+                        "lista"
+                    ) {
+
+
+                        const h3 =
+                            document.createElement(
+                                "h3"
+                            );
+
+
+                        h3.textContent =
+                            pagina.titulo;
+
+
+                        paginaElemento.appendChild(
+                            h3
+                        );
+
+
+                        const lista =
+                            document.createElement(
+                                "ul"
+                            );
+
+
+                        lista.className =
+                            "lista-libro";
+
+
+                        pagina.elementos.forEach(
+                            (
+                                elemento,
+                                indice
+                            ) => {
+
+
+                                const li =
+                                    document.createElement(
+                                        "li"
+                                    );
+
+
+                                const numero =
+                                    document.createElement(
+                                        "span"
+                                    );
+
+
+                                numero.className =
+                                    "numero-lista";
+
+
+                                numero.textContent =
+                                    (indice + 1) +
+                                    ".";
+
+
+                                li.appendChild(
+                                    numero
+                                );
+
+
+                                li.appendChild(
+                                    document.createTextNode(
+                                        elemento
+                                    )
+                                );
+
+
+                                lista.appendChild(
+                                    li
+                                );
+
+                            }
+                        );
+
+
+                        paginaElemento.appendChild(
+                            lista
+                        );
+
+                    }
+
+
+                    /* =========================================
+                       FOTO + TEXTO
+                    ========================================= */
+
+                    else if (
+                        pagina.tipo ===
+                        "fotoTexto"
+                    ) {
+
+
+                        const h3 =
+                            document.createElement(
+                                "h3"
+                            );
+
+
+                        h3.textContent =
+                            pagina.titulo;
+
+
+                        const img =
+                            document.createElement(
+                                "img"
+                            );
+
+
+                        img.src =
+                            pagina.archivo;
+
+
+                        img.alt =
+                            "Recuerdo";
+
+
+                        const texto =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        texto.className =
+                            "texto-libro";
+
+
+                        texto.textContent =
+                            pagina.texto;
+
+
+                        paginaElemento.appendChild(
+                            h3
+                        );
+
+
+                        paginaElemento.appendChild(
+                            img
+                        );
+
+
+                        paginaElemento.appendChild(
+                            texto
+                        );
+
+                    }
+
+
+                    /* =========================================
+                       VIDEO
+                    ========================================= */
+
+                    else if (
+                        pagina.tipo ===
+                        "video"
+                    ) {
+
+
+                        const h3 =
+                            document.createElement(
+                                "h3"
+                            );
+
+
+                        h3.textContent =
+                            pagina.titulo;
+
+
+                        paginaElemento.appendChild(
+                            h3
+                        );
+
+
+                        if (
+                            pagina.textoArriba
+                        ) {
+
+
+                            const texto =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            texto.className =
+                                "texto-libro texto-centro";
+
+
+                            texto.textContent =
+                                pagina.textoArriba;
+
+
+                            paginaElemento.appendChild(
+                                texto
+                            );
+
+                        }
+
+
+                        const video =
+                            document.createElement(
+                                "video"
+                            );
+
+
+                        video.src =
+                            pagina.archivo;
+
+
+                        video.controls =
+                            true;
+
+
+                        video.preload =
+                            "metadata";
+
+
+                        paginaElemento.appendChild(
+                            video
+                        );
+
+                    }
+
+
+                    libro.appendChild(
+                        paginaElemento
+                    );
+
+
+                    /* =========================================
+                       CONTROLES
+                    ========================================= */
+
+                    const controles =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    controles.className =
+                        "controles-libro";
+
+
+                    const anterior =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    anterior.textContent =
+                        "← Anterior";
+
+
+                    anterior.disabled =
+                        paginaActual === 0;
+
+
+                    anterior.onclick =
+                        function(event) {
+
+                            event.stopPropagation();
+
+
+                            if (
+                                paginaActual >
+                                0
+                            ) {
+
+                                paginaActual--;
+
+                                mostrarPagina();
+
+                            }
+
+                        };
+
+
+                    const numero =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    numero.className =
+                        "numero-pagina";
+
+
+                    numero.textContent =
+                        "Página " +
+                        (paginaActual + 1) +
+                        " de " +
+                        paginas.length;
+
+
+                    const siguiente =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    siguiente.textContent =
+                        paginaActual ===
+                        paginas.length - 1
+                        ?
+                        "Cerrar ❤️"
+                        :
+                        "Siguiente →";
+
+
+                    siguiente.onclick =
+                        function(event) {
+
+                            event.stopPropagation();
+
+
+                            if (
+                                paginaActual <
+                                paginas.length - 1
+                            ) {
+
+                                paginaActual++;
+
+                                mostrarPagina();
+
+                            }
+
+                            else {
+
+                                cerrarModal();
+
+                            }
+
+                        };
+
+
+                    controles.appendChild(
+                        anterior
+                    );
+
+
+                    controles.appendChild(
+                        numero
+                    );
+
+
+                    controles.appendChild(
+                        siguiente
+                    );
+
+
+                    contenido.appendChild(
+                        libro
+                    );
+
+
+                    contenido.appendChild(
+                        controles
+                    );
+
+                }
+
+
+                mostrarPagina();
+
+            }
+
+
+            /* =================================================
+               MODAL NORMAL DE TEXTO
+            ================================================= */
+
+            else if (
+                recuerdo.tipo ===
+                "texto"
+            ) {
+
+
+                const p =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                p.textContent =
+                    recuerdo.contenido;
+
+
+                contenido.appendChild(
+                    p
+                );
+
+            }
+
+
+            /* =================================================
+               FOTO
+            ================================================= */
+
+            else if (
+                recuerdo.tipo ===
+                "foto"
+            ) {
+
+
+                const img =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                img.src =
+                    recuerdo.contenido;
+
+
+                img.alt =
+                    "Recuerdo";
+
+
+                contenido.appendChild(
+                    img
+                );
+
+            }
+
+
+            /* =================================================
+               VIDEO
+            ================================================= */
+
+            else if (
+                recuerdo.tipo ===
+                "video"
+            ) {
+
+
+                const video =
+                    document.createElement(
+                        "video"
+                    );
+
+
+                video.src =
+                    recuerdo.contenido;
+
+
+                video.controls =
+                    true;
+
+
+                contenido.appendChild(
+                    video
+                );
+
+            }
+
+
+            modal.classList.add(
+                "activo"
+            );
+
+        }
+
+
+        /* ====================================================
+           CERRAR MODAL
+        ==================================================== */
+
+        function cerrarModal() {
+
+            const modal =
+                document.getElementById(
+                    "modal"
+                );
+
+
+            const videos =
+                modal.querySelectorAll(
+                    "video"
+                );
+
+
+            videos.forEach(
+                video => {
+
+                    video.pause();
+
+                    video.currentTime =
+                        0;
+
+                }
+            );
+
+
+            modal.classList.remove(
+                "activo"
+            );
+
+        }
+
+
+        /* ====================================================
+           ACTIVAR CUMPLEAÑOS
+        ==================================================== */
+
+        let cumpleanosActivado =
+            false;
+
+
+        function activarCumpleanos() {
+
+            if (
+                cumpleanosActivado
+            ) {
+
+                return;
+
+            }
+
+
+            cumpleanosActivado =
+                true;
+
+
+            /* CAMBIAR TEMA */
+
+            cambiarTema(
+                "amarillo"
+            );
+
+
+            /* ENCABEZADO */
+
+            document.getElementById(
+                "fechaActual"
+            ).textContent =
+                "6 de octubre";
+
+
+            document.getElementById(
+                "tituloPrincipal"
+            ).textContent =
+                "Feliz cumpleaños";
+
+
+            document.getElementById(
+                "subtituloPrincipal"
+            ).textContent =
+                "Hoy todo este jardín es para ti. 🌷";
+
+
+            /* MOSTRAR CARTA EXTRA */
+
+            document.getElementById(
+                "cumpleanos"
+            )
+            .classList.add(
+                "visible"
+            );
+
+
+            /* MOSTRAR FINAL */
+
+            document.getElementById(
+                "finalCumpleanos"
+            )
+            .classList.add(
+                "visible"
+            );
+
+
+            /* CONFETI */
+
+            crearConfeti();
+
+
+            /* ACTUALIZAR JARDÍN */
+
+            crearJardin();
+
+        }
+
+
+        /* ====================================================
+           CONFETI
+        ==================================================== */
+
+        function crearConfeti() {
+
+            const simbolos = [
+
+                "🎉",
+                "✨",
+                "💛",
+                "🌷",
+                "🎂",
+                "⭐"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < 40;
+                i++
+            ) {
+
+
+                const elemento =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                elemento.className =
+                    "confeti";
+
+
+                elemento.textContent =
+                    simbolos[
+                        Math.floor(
+                            Math.random() *
+                            simbolos.length
+                        )
+                    ];
+
+
+                elemento.style.left =
+                    Math.random() *
+                    100 +
+                    "%";
+
+
+                elemento.style.animationDelay =
+                    Math.random() *
+                    3 +
+                    "s";
+
+
+                elemento.style.fontSize =
+                    (
+                        15 +
+                        Math.random() *
+                        20
+                    ) +
+                    "px";
+
+
+                document.body.appendChild(
+                    elemento
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        elemento.remove();
+
+                    },
+                    8000
+                );
+
+            }
+
+        }
+
+
+        /* ====================================================
+           CONTADOR DE RELACIÓN
+        ==================================================== */
+
+        function actualizarContador() {
+
+            const ahora =
+                obtenerFechaActual();
+
+
+            const diferencia =
+                ahora -
+                fechaInicio;
+
+
+            const dias =
+                Math.floor(
+                    diferencia /
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
+                );
+
+
+            const horas =
+                Math.floor(
+                    (
+                        diferencia /
+                        (
+                            1000 *
+                            60 *
+                            60
+                        )
+                    ) % 24
+                );
+
+
+            const minutos =
+                Math.floor(
+                    (
+                        diferencia /
+                        (
+                            1000 *
+                            60
+                        )
+                    ) % 60
+                );
+
+
+            const segundos =
+                Math.floor(
+                    (
+                        diferencia /
+                        1000
+                    ) % 60
+                );
+
+
+            document.getElementById(
+                "dias"
+            ).textContent =
+                dias;
+
+
+            document.getElementById(
+                "horas"
+            ).textContent =
+                horas;
+
+
+            document.getElementById(
+                "minutos"
+            ).textContent =
+                minutos;
+
+
+            document.getElementById(
+                "segundos"
+            ).textContent =
+                segundos;
+
+        }
+
+
+        /* ====================================================
+           FORMATEAR FECHA
+        ==================================================== */
+
+        function formatearFecha(fecha) {
+
+            return new Date(
+                fecha
+            ).toLocaleDateString(
+                "es-MX",
+                {
+
+                    day:
+                        "numeric",
+
+                    month:
+                        "long",
+
+                    year:
+                        "numeric"
+
+                }
+            );
+
+        }
+
+
+        /* ====================================================
+           IR AL JARDÍN
+        ==================================================== */
+
+        function irAlJardin() {
+
+            document.getElementById(
+                "seccionJardin"
+            )
+            .scrollIntoView({
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+
+
+        /* ====================================================
+           CERRAR MODAL AL HACER CLIC AFUERA
+        ==================================================== */
+
+        document.getElementById(
+            "modal"
+        ).addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    this
+                ) {
+
+                    cerrarModal();
+
+                }
+
+            }
+        );
+
+
+        /* ====================================================
+           CERRAR CON ESC
+        ==================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    cerrarModal();
+
+                }
+
+            }
+        );
+
+
+        /* ====================================================
+           MODO PRUEBA
+        ==================================================== */
+
+        function probarFecha(fecha) {
+
+            if (!MODO_PRUEBA) {
+
+                return;
+
+            }
+
+
+            fechaSimulada =
+                new Date(fecha);
+
+
+            cumpleanosActivado =
+                false;
+
+
+            document.getElementById(
+                "cumpleanos"
+            )
+            .classList.remove(
+                "visible"
+            );
+
+
+            document.getElementById(
+                "finalCumpleanos"
+            )
+            .classList.remove(
+                "visible"
+            );
+
+
+            document.getElementById(
+                "tituloPrincipal"
+            ).textContent =
+                "Para ti";
+
+
+            document.getElementById(
+                "subtituloPrincipal"
+            ).textContent =
+                "Hay algunas cosas que quiero guardar contigo.";
+
+
+            actualizarContador();
+
+            actualizarTema();
+
+            crearJardin();
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+
+
+        /* ====================================================
+           VOLVER A FECHA REAL
+        ==================================================== */
+
+        function volverFechaReal() {
+
+            if (!MODO_PRUEBA) {
+
+                return;
+
+            }
+
+
+            fechaSimulada =
+                null;
+
+
+            cumpleanosActivado =
+                false;
+
+
+            document.getElementById(
+                "cumpleanos"
+            )
+            .classList.remove(
+                "visible"
+            );
+
+
+            document.getElementById(
+                "finalCumpleanos"
+            )
+            .classList.remove(
+                "visible"
+            );
+
+
+            document.getElementById(
+                "tituloPrincipal"
+            ).textContent =
+                "Para ti";
+
+
+            document.getElementById(
+                "subtituloPrincipal"
+            ).textContent =
+                "Hay algunas cosas que quiero guardar contigo.";
+
+
+            actualizarContador();
+
+            actualizarTema();
+
+            crearJardin();
+
+        }
+
+
+        /* ====================================================
+           MOSTRAR / OCULTAR PANEL DE PRUEBAS
+        ==================================================== */
+
+        const panelPruebas =
+            document.getElementById(
+                "panelPruebas"
+            );
+
+
+        if (panelPruebas) {
+
+            panelPruebas.style.display =
+                MODO_PRUEBA
+                ?
+                "block"
+                :
+                "none";
+
+        }
+
+
+        /* ====================================================
+           INICIALIZAR
+        ==================================================== */
+
+        actualizarContador();
+
+        actualizarTema();
+
+        crearJardin();
+
+
+        /* ====================================================
+           ACTUALIZAR CADA SEGUNDO
+        ==================================================== */
+
+        setInterval(
+            function() {
+
+                actualizarContador();
+
+                actualizarTema();
+
+                crearJardin();
+
+            },
+            1000
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
